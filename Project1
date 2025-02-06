@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL 로드 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>웹사이트 로드</h2>
+    <input type="text" id="urlInput" placeholder="URL을 입력하세요" />
+    <button onclick="loadWebsite()">이동</button>
+    <br><br>
+    <iframe id="webFrame"></iframe>
+    
+    <script>
+        function loadWebsite() {
+            var url = document.getElementById('urlInput').value;
+            if (url) {
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url;
+                }
+                document.getElementById('webFrame').src = url;
+            }
+        }
+    </script>
+</body>
+</html>
